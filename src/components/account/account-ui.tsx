@@ -294,7 +294,7 @@ function ModalAirdrop({ hide, show, address }: { hide: () => void; show: boolean
         type="number"
         step="any"
         min="1"
-        votingdapp="Amount"
+        // votingdapp="Amount"
         className="input input-bordered w-full"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
@@ -342,7 +342,7 @@ function ModalSend({ hide, show, address }: { hide: () => void; show: boolean; a
         type="number"
         step="any"
         min="1"
-        votingdapp="Amount"
+        // votingdapp="Amount"
         className="input input-bordered w-full"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
