@@ -1,5 +1,4 @@
 'use client'
-
 import { useWallet } from '@solana/wallet-adapter-react'
 import { LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js'
 import { IconRefresh } from '@tabler/icons-react'
@@ -59,14 +58,12 @@ export function AccountBalanceCheck({ address }: { address: PublicKey }) {
   }
   return null
 }
-
 export function AccountButtons({ address }: { address: PublicKey }) {
   const wallet = useWallet()
   const { cluster } = useCluster()
   const [showAirdropModal, setShowAirdropModal] = useState(false)
   const [showReceiveModal, setShowReceiveModal] = useState(false)
   const [showSendModal, setShowSendModal] = useState(false)
-
   return (
     <div>
       <ModalAirdrop hide={() => setShowAirdropModal(false)} address={address} show={showAirdropModal} />
