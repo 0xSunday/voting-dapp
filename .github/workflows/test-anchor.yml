@@ -43,6 +43,9 @@ jobs:
       - name: Check solana config
         run: solana config get
 
+      - name: Set Cargo environment variable
+        run: echo 'CARGO_PROFILE_DEV_PANIC_ABORT="-Znext-lockfile-bump"' >> $GITHUB_ENV
+
       - run: pnpm run anchor build
         shell: bash
 
