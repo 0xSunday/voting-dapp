@@ -332,7 +332,7 @@ function ModalSend({ hide, show, address }: { hide: () => void; show: boolean; a
       <input
         disabled={mutation.isPending}
         type="text"
-        votingdapp="Destination"
+        // votingdapp="Destination"
         className="input input-bordered w-full"
         value={destination}
         onChange={(e) => setDestination(e.target.value)}
