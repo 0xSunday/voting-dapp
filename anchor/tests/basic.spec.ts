@@ -12,6 +12,6 @@ const IDL = require("../target/idl/voting.json");
 
 describe("Voting", () => {
   it("initilize poll", async () => {
-    // test
+    // test test test successful
   });
 });
