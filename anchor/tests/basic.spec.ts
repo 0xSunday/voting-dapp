@@ -4,6 +4,8 @@ const IDL = require("../target/idl/voting.json");
 
 import { Keypair, PublicKey } from "@solana/web3.js";
 import { BN, Program } from "@coral-xyz/anchor";
+import { publicKey } from "@coral-xyz/anchor/dist/cjs/utils";
+import { buffer } from "stream/consumers";
 
 // import * as anchor from "@coral-xyz/anchor";
 // import { Program } from '@coral-xyz/anchor';
@@ -33,5 +35,17 @@ describe("Voting", () => {
         new BN(1738255057)
       )
       .rpc();
+
+    const [pollAddress] = PublicKey.findProgramAddressSync(
+      [new BN(1).toArrayLike(Buffer, "le", 8)],
+      votingAddress
+    );
+
+    const poll = await votingProgram.account.poll.fetch(pollAddress);
+    console.log(poll);
+
+    expect(poll.pollId.toNumber()).toEqual(1);
+    expect(poll.description).toEqual("what is your favorate crypto currency ?");
+    expect(poll.pollStart.toNumber()).toBeLessThan(poll.pollEnd.toNumber());
   });
 });
